@@ -1,11 +1,18 @@
 install:
-	#install commands 
+	# Install commands
+	pip install --upgrade pip &&\
+	pip install -r requirements.txt
+
 format:
-	#format code	
-lint: 
-	#pylint
+	# Format code
+
+lint:
+	# Pylint
+
 test:
-	#test
+	# Test
+
 deploy:
-	#deploy
+	# Deploy
+
 all: install lint test deploy
