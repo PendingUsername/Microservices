@@ -13,9 +13,10 @@ lint:
 
 test:
 	# Test
+	python -m pytest -vv  --cov=mylib test_logic.py
 build:
 	#build container
-	
+
 deploy:
 	# Deploy
 
