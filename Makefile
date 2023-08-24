@@ -13,7 +13,9 @@ lint:
 
 test:
 	# Test
-
+build:
+	#build container
+	
 deploy:
 	# Deploy
 
