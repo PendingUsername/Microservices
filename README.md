@@ -6,3 +6,4 @@ Real world AWS Microservices
 2. Create empty files: Makefile, requirements.txt, main.py, Dockerfile, 'mylib' 
 3. Setup makefile
 4. Setup CI, check codes for issues
+5. Build cli using Python Fire library './cli-fire.py --help' -- logic test
