@@ -1,4 +1,3 @@
-from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from main import app
 
@@ -10,7 +9,16 @@ def test_read_main():
     assert response.status_code == 200
     assert response.json() == {"message": "Wikipedia API. Call, Search, or Wiki."}
 
+
 def test_read_():
     response = client.get("/phrase/Donald Trump")
     assert response.status_code == 200
-    assert response.json() == {"result": ["donald john trump","june","american politician","media personality","45th president"]}   
+    assert response.json() == {
+        "result": [
+            "donald john trump",
+            "june",
+            "american politician",
+            "media personality",
+            "45th president",
+        ]
+    }
