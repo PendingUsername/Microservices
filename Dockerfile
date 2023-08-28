@@ -1,10 +1,10 @@
 FROM python:3.10-slim
 
 RUN mkdir -p /app
-COPY . /app/
+COPY . main.py requirements.txt /app/
 WORKDIR /app
-COPY requirements.txt /app/  
-RUN pip install -r requirements.txt
-RUN python -m textblob.download_corpora
+RUN python -m venv venv
+RUN . venv/bin/activate && pip install -r requirements.txt
 EXPOSE 8080
-CMD [ "python", "main.py" ]
+CMD [ "venv/bin/python", "main.py" ]
+
