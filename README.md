@@ -15,8 +15,11 @@ Refer to my YML file for correct setup.
 
 The format should look like this:
 
-version: 0.2
+# Sample Buildspec YAML Configuration
 
+This is a sample configuration for a buildspec.yaml file used in AWS CodeBuild. It outlines various phases and commands that can be executed during the build process.
+
+```yaml
 #env:
   #variables:
      # key: "value"
@@ -36,6 +39,7 @@ version: 0.2
   #build-list:
   #build-matrix:
   #build-graph:
+
 phases:
   #install:
     #runtime-versions:
@@ -44,18 +48,22 @@ phases:
     #commands:
       # - command
       # - command
+
   #pre_build:
     #commands:
       # - command
       # - command
+
   build:
     commands:
       # - command
       # - command
+
   #post_build:
     #commands:
       # - command
       # - command
+
 #reports:
   #report-name-or-arn:
     #files:
@@ -64,6 +72,7 @@ phases:
     #base-directory: location
     #discard-paths: yes
     #file-format: JunitXml | CucumberJson
+
 #artifacts:
   #files:
     # - location
@@ -71,6 +80,7 @@ phases:
   #name: $(date +%Y-%m-%d)
   #discard-paths: yes
   #base-directory: location
+
 #cache:
   #paths:
     # - paths
