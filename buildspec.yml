@@ -1,6 +1,30 @@
 version: 0.2
 
 phases:
+  pre_build:
+    commands:
+      - echo "Pre-build phase"
+      - echo "Install AWS CLI and Docker"
+      - apt-get update
+      - apt-get install -y awscli docker.io
+
   build:
     commands:
-     - make all
+      - echo "Build phase"
+      - make install
+      - make post-install
+      - make lint
+      - make test
+
+  post_build:
+    commands:
+      - echo "Post-build phase"
+      - echo "Docker login to ECR"
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 453981299687.dkr.ecr.your-region.amazonaws.com
+      - echo "Building Docker image"
+      - docker build -t fastapiwiki .
+      - echo "Tagging Docker image"
+      - docker tag fastapiwiki:latest 453981299687.dkr.ecr.your-region.amazonaws.com/fastapiwiki:latest
+      - echo "Pushing Docker image to ECR"
+      - docker push 453981299687.dkr.ecr.your-region.amazonaws.com/fastapiwiki:latest
+
